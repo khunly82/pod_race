@@ -15,8 +15,6 @@ async def post(
         pilot_service: PilotService = Depends(PilotService)
     ):
     pilot = pilot_service.add_pilot(dto)
-    # EXERCICE: 
-    # TODO INVALIDATE CACHE HERE
     await FastAPICache.clear(namespace='pilot')
     return pilot.id
 
