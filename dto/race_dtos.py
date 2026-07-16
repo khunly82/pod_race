@@ -26,7 +26,7 @@ class RaceDto:
         )
 
 class RaceAddDto(BaseModel):
-    name: str = Field()
+    name: str = Field(max_length=50)
     dangerousness: Race.Dangerousness = Field()
 
     def to_entity(self) -> Race:
